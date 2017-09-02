@@ -9,6 +9,8 @@ module.exports = {
     app: './src/index.js',
     print: './src/print.js'
   },
+  // Para mapear los archivos que arrojen errores
+  devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
