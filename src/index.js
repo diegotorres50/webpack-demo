@@ -1,6 +1,7 @@
 import _ from 'lodash'; // Lodash es una libreria de filtrado de objetos
 import './style.css';
 import Icon from './icon.png';
+import Data from './data.xml';
 
 // Este archivo hace de entry point para webpack
 
@@ -21,6 +22,8 @@ function component() {
     myIcon.src = Icon;
 
     element.appendChild(myIcon);
+
+    console.log(Data);
 
     return element;
 }
