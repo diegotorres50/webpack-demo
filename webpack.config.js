@@ -11,6 +11,11 @@ module.exports = {
   },
   // Para mapear los archivos que arrojen errores
   devtool: 'inline-source-map',
+  // The webpack-dev-server provides you with a simple web server and the ability to use live reloading.
+  // This tells webpack-dev-server to serve the files from the dist directory on localhost:8080.
+  devServer: {
+    contentBase: './dist'
+  },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
