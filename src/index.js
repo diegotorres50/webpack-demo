@@ -1,5 +1,6 @@
 import _ from 'lodash'; // Lodash es una libreria de filtrado de objetos
 import './style.css';
+import Icon from './icon.png';
 
 // Este archivo hace de entry point para webpack
 
@@ -14,6 +15,12 @@ function component() {
 
     // Le agregamos al elemento div creado una clase css
     element.classList.add('hello');
+
+    // Add the image to our existing div.
+    var myIcon = new Image();
+    myIcon.src = Icon;
+
+    element.appendChild(myIcon);
 
     return element;
 }
