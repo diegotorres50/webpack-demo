@@ -1,5 +1,6 @@
 import _ from 'lodash'; // Lodash es una libreria de filtrado de objetos
 import printMe from './print.js';
+import './styles.css';
 
 // Este archivo hace de entry point para webpack
 
