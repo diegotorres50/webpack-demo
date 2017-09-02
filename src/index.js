@@ -23,3 +23,12 @@ function component() {
 }
 
 document.body.appendChild(component());
+
+// Si un modulo cambia (osea un archivo o dependencia) se aceptara el cambio
+// When a change inside print.js is detected we tell webpack to accept the updated module.
+if (module.hot) {
+  module.hot.accept('./print.js', function() {
+    console.log('Accepting the updated printMe module!');
+    printMe();
+  })
+}
