@@ -1,12 +1,12 @@
 import _ from 'lodash'; // Lodash es una libreria de filtrado de objetos
-import './style.css';
-import Icon from './icon.png';
-import Data from './data.xml';
+import printMe from './print.js';
 
 // Este archivo hace de entry point para webpack
 
 function component() {
     var element = document.createElement('div');
+
+    var btn = document.createElement('button');
 
     // Lodash, currently included via a script, is required for this line to work
     // Lodash, now imported by this script
@@ -14,16 +14,10 @@ function component() {
     // Lodash es usado aqui para concatenar
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
-    // Le agregamos al elemento div creado una clase css
-    element.classList.add('hello');
+    btn.innerHTML = 'Click me and check the console!';
+    btn.onclick = printMe;
 
-    // Add the image to our existing div.
-    var myIcon = new Image();
-    myIcon.src = Icon;
-
-    element.appendChild(myIcon);
-
-    console.log(Data);
+    element.appendChild(btn);
 
     return element;
 }
