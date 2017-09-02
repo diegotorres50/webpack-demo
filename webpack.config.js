@@ -4,23 +4,27 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // Hace un clean al directorio del output
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+const webpack = require('webpack')
+
 module.exports = {
   entry: {
-    app: './src/index.js',
-    print: './src/print.js'
+    app: './src/index.js'
   },
   // Para mapear los archivos que arrojen errores
   devtool: 'inline-source-map',
   // The webpack-dev-server provides you with a simple web server and the ability to use live reloading.
   // This tells webpack-dev-server to serve the files from the dist directory on localhost:8080.
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    // Habilitara Hot Module Replacement
+    hot: true
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Output Management'
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   output: {
     filename: '[name].bundle.js',
