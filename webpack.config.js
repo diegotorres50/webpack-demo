@@ -1,5 +1,8 @@
 const path = require('path');
+// Recrea el index.html
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// Hace un clean al directorio del output
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -7,6 +10,7 @@ module.exports = {
     print: './src/print.js'
   },
   plugins: [
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Output Management'
     })
