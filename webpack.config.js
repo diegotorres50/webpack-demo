@@ -6,6 +6,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const webpack = require('webpack')
 
+// Hace minify y elimina codigo muerto, lo que se llama tree shaking
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
 module.exports = {
   entry: {
     app: './src/index.js'
@@ -33,10 +36,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Output Management'
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new UglifyJSPlugin()
   ],
   output: {
-    filename: '[name].bundle.js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   }

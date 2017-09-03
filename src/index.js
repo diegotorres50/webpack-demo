@@ -23,17 +23,13 @@ function component() {
     return element;
 }
 
-// Hot Module Replacement
-let element = component(); // Store the element to re-render on print.js changes
-document.body.appendChild(element);
+document.body.appendChild(component());
 
 // Si un modulo cambia (osea un archivo o dependencia) se aceptara el cambio
 // When a change inside print.js is detected we tell webpack to accept the updated module.
 if (module.hot) {
   module.hot.accept('./print.js', function() {
     console.log('Accepting the updated printMe module!');
-    document.body.removeChild(element);
-    element = component(); // Re-render the "component" to update the click handler
-    document.body.appendChild(element);
+    printMe();
   })
 }
